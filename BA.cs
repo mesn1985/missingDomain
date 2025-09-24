@@ -5,7 +5,7 @@ public class BA
     private static int ACN = 1;
 
     public string NUM { get; }
-    public string Owner { get; set; }
+    public string Ow { get; set; }
 
     private List<Tr> _at = new List<Tr>();
 
@@ -26,8 +26,8 @@ public class BA
         NUM = ACN.ToString();
         ACN++;
 
-        this.Owner = nm;
-        Md(ib, DateTime.Now, "Initial");
+        this.Ow = nm;
+        Md(ib, DateTime.Now, "In");
 
         
     }
@@ -35,7 +35,7 @@ public class BA
     {
         if (am <= 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(am), "Amount must be positive");
+            throw new ArgumentOutOfRangeException(nameof(am), "Must be positive");
         }
         var dep = new Tr(am, d, n);
         _at.Add(dep);
@@ -45,7 +45,7 @@ public class BA
     {
         if (a <= 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(a), "Amount must be positive");
+            throw new ArgumentOutOfRangeException(nameof(a), "Must be positive");
         }
         if (bal - a < 0)
         {
